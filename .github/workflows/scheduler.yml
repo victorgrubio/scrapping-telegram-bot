@@ -20,3 +20,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run Scraper
         run: python -m scrapy runspider ./psicologia_bot/spiders/colegio_psicologos_spider.py
+        env:
+            TELEGRAM_TOKEN: "${{secrets.TELEGRAM_TOKEN}}"
