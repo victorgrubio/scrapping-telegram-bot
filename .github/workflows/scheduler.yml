@@ -1,0 +1,21 @@
+name: Scraper every 5 minutes
+on:
+    workflow_dispatch:
+        inputs:
+            tags:
+                description: 'Test scenario tags' 
+    schedule:
+        - cron: "*/5 * * * *"
+jobs:
+  crawler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Run Scraper
+        run: python -m scrapy runspider ./psicologia_bot/spiders/colegio_psicologos_spider.py
