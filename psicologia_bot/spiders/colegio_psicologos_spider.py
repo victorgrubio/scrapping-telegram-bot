@@ -77,7 +77,8 @@ class ColegioPsicologosSpider(scrapy.Spider):
     async def spider_closed(self, spider):
         spider.logger.info("Spider closed. Sending message: %s", spider.name)
         if self.current_data and self.new_data:
-            asyncio.run(self.send_telegram_notification())
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(self.send_telegram_notification())
 
     async def send_telegram_notification(self):
         # Create the final message with Markdown or HTML formatting
