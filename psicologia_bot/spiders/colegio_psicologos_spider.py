@@ -5,6 +5,9 @@ import json
 import os
 from telegram import Bot
 from telegram.constants import ParseMode
+import nest_asyncio
+
+nest_asyncio.apply()
 
 
 class ColegioPsicologosSpider(scrapy.Spider):
