@@ -5,7 +5,7 @@ on:
             tags:
                 description: 'Test scenario tags' 
     schedule:
-        - cron: "*/5 * * * *"
+        - cron: "0 * * * *"
 jobs:
   crawler:
     runs-on: ubuntu-latest
